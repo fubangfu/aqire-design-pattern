@@ -102,8 +102,9 @@ class Application {
         this.factory = factory;
     }
 
-    public void createUI() {
+    public Application createUI() {
         this.button = this.factory.createButton();
+        return this;
     }
 
     public void paint() {
@@ -123,7 +124,7 @@ class ApplicationConfigurator {
         } else {
             throw new Exception("错误！未知的操作系统。");
         }
-        Application app = new Application(factory);
+        new Application(factory).createUI().paint();
     }
 }
 
