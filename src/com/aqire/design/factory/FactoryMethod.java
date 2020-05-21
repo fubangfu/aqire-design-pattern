@@ -1,4 +1,4 @@
-package com.aqire.factory;
+package com.aqire.design.factory;
 
 /**
  * 工厂方法模式
