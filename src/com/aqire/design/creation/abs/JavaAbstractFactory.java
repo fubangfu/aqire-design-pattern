@@ -129,7 +129,7 @@ class ApplicationConfigurator {
 }
 
 
-public class AbstractFactory {
+public class JavaAbstractFactory {
     public static void main(String[] args) {
         try {
             new ApplicationConfigurator().main("window");

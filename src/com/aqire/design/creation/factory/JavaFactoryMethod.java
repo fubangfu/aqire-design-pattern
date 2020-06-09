@@ -107,7 +107,7 @@ class Application {
 }
 
 
-public class FactoryMethod {
+public class JavaFactoryMethod {
     public static void main(String[] args) {
         new Application().main(args.length == 0 ? "window" : "web");
     }
