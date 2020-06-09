@@ -1,5 +1,8 @@
 package com.aqire.design.creation.single;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
 /**
  * 单例模式
  *
@@ -99,10 +102,28 @@ class EnumSingle {
 
 public class JavaSingle {
     public static void main(String[] args) {
+        //
         System.out.println(LazyMan.getInstance() == LazyMan.getInstance());
         System.out.println(DoubleLock.getInstance() == DoubleLock.getInstance());
         System.out.println(Hungry.getInstance() == Hungry.getInstance());
         System.out.println(StaticInside.getInstance() == StaticInside.getInstance());
         System.out.println(EnumSingle.getInstance() == EnumSingle.getInstance());
+        // 反射
+        System.out.println("----反射----");
+        try {
+            Constructor constructor = LazyMan.class.getDeclaredConstructor();
+            constructor.setAccessible(true);
+            LazyMan s1 = (LazyMan) constructor.newInstance();
+            LazyMan s2 = (LazyMan) constructor.newInstance();
+            System.out.println(s1 == s2);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
     }
 }
