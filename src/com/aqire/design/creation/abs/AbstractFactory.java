@@ -1,4 +1,4 @@
-package com.aqire.design.abs;
+package com.aqire.design.creation.abs;
 
 /**
  * 抽象工厂模式
